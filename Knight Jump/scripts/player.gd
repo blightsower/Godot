@@ -52,7 +52,6 @@ func _physics_process(delta: float) -> void:
 	
 	if !is_on_floor() and last_floor and !jumping:
 		coyote = true
-		print("test")
 		coyote_timer.start()
 
 func _on_coyote_timer_timeout() -> void:
