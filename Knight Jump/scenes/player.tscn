@@ -187,6 +187,7 @@ position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_ce5br")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.15
 one_shot = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
