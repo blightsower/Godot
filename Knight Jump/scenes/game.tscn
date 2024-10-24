@@ -1,6 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://ovl2i12e3j0p"]
+[gd_scene load_steps=16 format=3 uid="uid://ovl2i12e3j0p"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hhncu"]
 [ext_resource type="PackedScene" uid="uid://dijnusjf6vl6t" path="res://scenes/kill_zone.tscn" id="1_oy207"]
 [ext_resource type="PackedScene" uid="uid://mfqstd1lf228" path="res://scenes/player.tscn" id="1_uqowb"]
 [ext_resource type="Texture2D" uid="uid://yjwuyggrn7od" path="res://assets/sprites/world_tileset.png" id="2_41qmf"]
@@ -251,10 +250,6 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
-
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_hhncu")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yhu47")
