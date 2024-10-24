@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://ovl2i12e3j0p"]
+[gd_scene load_steps=17 format=3 uid="uid://ovl2i12e3j0p"]
 
 [ext_resource type="PackedScene" uid="uid://dijnusjf6vl6t" path="res://scenes/kill_zone.tscn" id="1_oy207"]
+[ext_resource type="PackedScene" uid="uid://bsylnctcdnxxg" path="res://scenes/hud.tscn" id="1_p6dno"]
 [ext_resource type="PackedScene" uid="uid://mfqstd1lf228" path="res://scenes/player.tscn" id="1_uqowb"]
 [ext_resource type="Texture2D" uid="uid://yjwuyggrn7od" path="res://assets/sprites/world_tileset.png" id="2_41qmf"]
 [ext_resource type="PackedScene" uid="uid://dwe4kiilogq27" path="res://scenes/platform.tscn" id="3_rl6mm"]
@@ -250,6 +251,8 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
+
+[node name="Hud" parent="." instance=ExtResource("1_p6dno")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yhu47")
