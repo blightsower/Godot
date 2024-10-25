@@ -4,3 +4,5 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_clwgo")
+
+[connection signal="ready" from="." to="." method="_on_ready"]

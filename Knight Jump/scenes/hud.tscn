@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://bsylnctcdnxxg"]
+[gd_scene load_steps=40 format=3 uid="uid://bsylnctcdnxxg"]
 
 [ext_resource type="FontFile" uid="uid://nkfl4wl2efec" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_2owfy"]
 [ext_resource type="Texture2D" uid="uid://dkbamq2fv3g6j" path="res://assets/sprites/coin.png" id="1_hwp58"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_s1dre"]
 [ext_resource type="Texture2D" uid="uid://de12si35y704n" path="res://assets/sprites/knight.png" id="3_gjt0v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tkrep"]
@@ -262,6 +263,7 @@ animations = [{
 }]
 
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_s1dre")
 
 [node name="ScoreControl" type="Control" parent="."]
 layout_mode = 3
@@ -324,3 +326,5 @@ scale = Vector2(2.45313, 2.59375)
 sprite_frames = SubResource("SpriteFrames_5r88r")
 animation = &"jump"
 autoplay = "idle"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
