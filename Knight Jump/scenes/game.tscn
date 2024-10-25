@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ovl2i12e3j0p"]
+[gd_scene load_steps=19 format=3 uid="uid://ovl2i12e3j0p"]
 
 [ext_resource type="PackedScene" uid="uid://dijnusjf6vl6t" path="res://scenes/kill_zone.tscn" id="1_oy207"]
 [ext_resource type="PackedScene" uid="uid://bsylnctcdnxxg" path="res://scenes/hud.tscn" id="1_p6dno"]
@@ -251,6 +251,9 @@ _data = {
 "RESET": SubResource("Animation_6mc8f")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6w511"]
+distance = -208.0
+
 [node name="Game" type="Node2D"]
 position = Vector2(121, 80)
 
@@ -332,3 +335,9 @@ position = Vector2(598, 101)
 
 [node name="Slime" parent="." instance=ExtResource("6_gw1ju")]
 position = Vector2(520, 127)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(182, -59)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_6w511")
