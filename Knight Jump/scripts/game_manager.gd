@@ -1,7 +1,7 @@
 extends Node
 
 var _MAX_SCORE = 99
-
+var current_stage = 1
 var _score = 0
 var life = 3
 
