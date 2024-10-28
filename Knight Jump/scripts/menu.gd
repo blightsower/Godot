@@ -7,7 +7,7 @@ func _ready() -> void:
 	btn_start.grab_focus()
 
 func _on_btn_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/transition_screen.tscn")
 
 func _on_btn_options_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/input_settings.tscn")

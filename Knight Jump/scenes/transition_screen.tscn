@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq3w5is51y8wl"]
+
+[ext_resource type="Script" path="res://scripts/transition_screen.gd" id="1_0baan"]
+[ext_resource type="FontFile" uid="uid://nkfl4wl2efec" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_taolx"]
+
+[node name="TransitionScreen" type="CanvasLayer"]
+script = ExtResource("1_0baan")
+
+[node name="TransitionTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SceneLabel" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_taolx")
+theme_override_font_sizes/font_size = 32
+text = "Game Over"
+
+[connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
