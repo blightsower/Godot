@@ -1,6 +1,7 @@
 extends Node
 
 enum CAMPAIGN { VICTORY, DEFEAT, PLAYING }
+var INITIAL_SPAWNS = [ Vector2i(-39, 207) ]
 
 const MAX_SCORE = 99
 const MAX_STAGE = 5
@@ -13,6 +14,7 @@ var _score
 var _life
 var _current_stage
 var _campaign
+var _spawn
 
 signal on_score_increased(score)
 signal on_life_changed(life)
@@ -32,6 +34,7 @@ func reset():
 	_score = INITIAL_SCORE
 	_current_stage = INITIAL_STAGE
 	_campaign = CAMPAIGN.PLAYING
+	_spawn = INITIAL_SPAWNS[0]
 
 func _on_ready() -> void:
 	on_life_changed.emit(_life)
@@ -52,3 +55,9 @@ func get_campaign_state():
 
 func get_current_stage():
 	return _current_stage
+	
+func get_spawn():
+	return _spawn
+	
+func set_spawn(v:Vector2i):
+	_spawn = v

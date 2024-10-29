@@ -59,3 +59,5 @@ func _on_coyote_timer_timeout() -> void:
 
 func _on_ready() -> void:
 	coyote_timer.wait_time = coyote_frames / 60
+	position = GameManager.get_spawn()
+	print(str(position))
