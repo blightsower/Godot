@@ -6,7 +6,8 @@ extends CanvasLayer
 func _on_ready() -> void:
 	GameManager.on_life_changed.connect(on_life_changed)
 	GameManager.on_score_increased.connect(on_score_changed)
-	life_label.text = "x" + str(GameManager.life)
+	life_label.text = "x" + str(GameManager.get_life())
+	score_label.text = "x" + str(GameManager.get_score())
 	
 func on_life_changed(val):
 	life_label.text = "x" + str(val)
