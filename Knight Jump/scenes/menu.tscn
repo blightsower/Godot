@@ -37,6 +37,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_evlrd")
 text = "Options"
 
+[node name="btn_about" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_evlrd")
+text = "About"
+
 [node name="btn_quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../btn_start")
