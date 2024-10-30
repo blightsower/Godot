@@ -15,9 +15,11 @@ var _life
 var _current_stage
 var _campaign
 var _spawn
+var _is_paused
 
 signal on_score_increased(score)
 signal on_life_changed(life)
+signal on_pause(pause)
 
 func increase_score(val):
 	_score += val
@@ -35,6 +37,7 @@ func reset():
 	_current_stage = INITIAL_STAGE
 	_campaign = CAMPAIGN.PLAYING
 	_spawn = INITIAL_SPAWNS[0]
+	_is_paused = false
 
 func _on_ready() -> void:
 	on_life_changed.emit(_life)
@@ -61,3 +64,10 @@ func get_spawn():
 	
 func set_spawn(v:Vector2i):
 	_spawn = v
+
+func pause():
+	_is_paused = !_is_paused
+	on_pause.emit(_is_paused)
+
+func get_pause_status():
+	return _is_paused
