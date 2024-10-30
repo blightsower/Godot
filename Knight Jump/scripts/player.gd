@@ -12,6 +12,9 @@ var last_floor
 var jumping = false
 
 func _physics_process(delta: float) -> void:
+	if GameManager.get_pause_status():
+		return
+	
 	# Add the gravity. 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -60,4 +63,3 @@ func _on_coyote_timer_timeout() -> void:
 func _on_ready() -> void:
 	coyote_timer.wait_time = coyote_frames / 60
 	position = GameManager.get_spawn()
-	print(str(position))
