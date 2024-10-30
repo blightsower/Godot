@@ -22,6 +22,7 @@ animations = [{
 }]
 
 [node name="Checkpoint" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_tod6v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -30,5 +31,6 @@ shape = SubResource("RectangleShape2D_ggnpu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0i2rx")
+frame_progress = 0.103853
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
