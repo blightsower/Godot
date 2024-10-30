@@ -19,7 +19,7 @@ var _is_paused
 
 signal on_score_increased(score)
 signal on_life_changed(life)
-signal on_pause(pause)
+signal on_pause()
 
 func increase_score(val):
 	_score += val
@@ -67,7 +67,7 @@ func set_spawn(v:Vector2i):
 
 func pause():
 	_is_paused = !_is_paused
-	on_pause.emit(_is_paused)
+	on_pause.emit()
 
 func get_pause_status():
 	return _is_paused

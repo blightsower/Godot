@@ -1,10 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://ovl2i12e3j0p"]
+[gd_scene load_steps=33 format=3 uid="uid://ovl2i12e3j0p"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_a8yln"]
 [ext_resource type="PackedScene" uid="uid://61nh8ioptxgk" path="res://scenes/parallax_background.tscn" id="1_nxrxb"]
 [ext_resource type="PackedScene" uid="uid://bsylnctcdnxxg" path="res://scenes/hud.tscn" id="2_j4ale"]
 [ext_resource type="Texture2D" uid="uid://yjwuyggrn7od" path="res://assets/sprites/world_tileset.png" id="3_opnyo"]
-[ext_resource type="PackedScene" uid="uid://bhri0t6rj7t3v" path="res://scenes/pause_menu.tscn" id="4_ilaol"]
 [ext_resource type="PackedScene" uid="uid://dh5pmkg4eaicn" path="res://scenes/goal.tscn" id="4_ywxyr"]
 [ext_resource type="PackedScene" uid="uid://bah5vxn3wux6y" path="res://scenes/checkpoint.tscn" id="5_bu84s"]
 [ext_resource type="PackedScene" uid="uid://mfqstd1lf228" path="res://scenes/player.tscn" id="6_avc2m"]
@@ -407,8 +406,6 @@ script = ExtResource("1_a8yln")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_nxrxb")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_ilaol")]
-
 [node name="Hud" parent="." instance=ExtResource("2_j4ale")]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -572,4 +569,4 @@ position = Vector2(1107, 309)
 [node name="Coin19" parent="Coins" instance=ExtResource("10_qiln1")]
 position = Vector2(1047, 265)
 
-[connection signal="ready" from="PauseMenu" to="." method="_on_pause_menu_ready"]
+[connection signal="ready" from="." to="." method="_on_ready"]
