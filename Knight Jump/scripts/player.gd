@@ -12,9 +12,6 @@ var last_floor
 var jumping = false
 
 func _physics_process(delta: float) -> void:
-	if GameManager.get_pause_status():
-		return
-	
 	# Add the gravity. 
 	if not is_on_floor():
 		velocity += get_gravity() * delta

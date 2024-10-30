@@ -1,7 +1,17 @@
-[gd_scene format=3 uid="uid://bhri0t6rj7t3v"]
+[gd_scene load_steps=4 format=3 uid="uid://bhri0t6rj7t3v"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_iq0qa"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_pumej"]
+action = &"escape"
+
+[sub_resource type="Shortcut" id="Shortcut_e7a0w"]
+events = [SubResource("InputEventAction_pumej")]
 
 [node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
 visible = false
+script = ExtResource("1_iq0qa")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 14
@@ -20,8 +30,19 @@ layout_mode = 2
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+shortcut = SubResource("Shortcut_e7a0w")
 text = "Resume"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Resume")
 text = "Quit"
+
+[node name="ResumeTimer" type="Timer" parent="MarginContainer"]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="timeout" from="MarginContainer/ResumeTimer" to="." method="_on_resume_timer_timeout"]
