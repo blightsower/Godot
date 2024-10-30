@@ -65,6 +65,9 @@ func _input(event: InputEvent):
 func _update_action_list(button, event):
 	button.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
 
-
 func _on_reset_button_pressed() -> void:
 	create_action_list()
+
+
+func _on_back_button_pressed() -> void:
+	print("check")
