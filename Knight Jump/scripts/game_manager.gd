@@ -38,6 +38,7 @@ func reset():
 	_campaign = CAMPAIGN.PLAYING
 	_spawn = INITIAL_SPAWNS[0]
 	_is_paused = false
+	SceneTransition.visible = true
 
 func _on_ready() -> void:
 	on_life_changed.emit(_life)

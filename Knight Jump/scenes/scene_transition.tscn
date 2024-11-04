@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh27abt6mqys7"]
+[gd_scene load_steps=7 format=3 uid="uid://bh27abt6mqys7"]
 
 [ext_resource type="Script" path="res://scripts/scene_transition.gd" id="1_n5v7x"]
+[ext_resource type="FontFile" uid="uid://nkfl4wl2efec" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_0biyt"]
 
 [sub_resource type="Animation" id="Animation_801tq"]
 resource_name = "RESET"
@@ -17,10 +18,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Control/TransitionLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ehtco"]
 resource_name = "dissolve"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,16 +40,32 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Control/TransitionLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_sorjo"]
+resource_name = "label"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6qvtr"]
 _data = {
 "RESET": SubResource("Animation_801tq"),
-"dissolve": SubResource("Animation_ehtco")
+"dissolve": SubResource("Animation_ehtco"),
+"label": SubResource("Animation_sorjo")
 }
 
 [node name="SceneTransition" type="CanvasLayer"]
@@ -58,3 +86,25 @@ root_node = NodePath("../disolve_rect")
 libraries = {
 "": SubResource("AnimationLibrary_6qvtr")
 }
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TransitionLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_0biyt")
+theme_override_font_sizes/font_size = 64

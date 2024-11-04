@@ -14,11 +14,11 @@ func _ready():
 	
 func _load_scene():
 	match GameManager.get_current_stage():
-		1: SceneTransition.change_scene("res://scenes/stages/game.tscn", "")
-		2: SceneTransition.change_scene("res://scenes/stages/game_2.tscn", "")
-		3: SceneTransition.change_scene("res://scenes/stages/game_3.tscn", "")
-		4: SceneTransition.change_scene("res://scenes/stages/game_4.tscn", "")
-		5: SceneTransition.change_scene("res://scenes/stages/game_5.tscn", "")
+		1: SceneTransition.change_scene("res://scenes/stages/game.tscn", "Level 1")
+		2: SceneTransition.change_scene("res://scenes/stages/game_2.tscn", "Level 2")
+		3: SceneTransition.change_scene("res://scenes/stages/game_3.tscn", "Level 3")
+		4: SceneTransition.change_scene("res://scenes/stages/game_4.tscn", "Level 4")
+		5: SceneTransition.change_scene("res://scenes/stages/game_5.tscn", "Level 5")
 
 func _on_transition_timer_timeout() -> void:
 	if GameManager.get_campaign_state() == GameManager.CAMPAIGN.DEFEAT || GameManager.get_campaign_state() == GameManager.CAMPAIGN.VICTORY:
