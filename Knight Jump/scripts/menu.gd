@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _on_btn_start_pressed() -> void:
 	GameManager.reset()
-	get_tree().change_scene_to_file("res://scenes/transition_screen.tscn")
+	GameManager.load_scene()
 
 func _on_btn_options_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/input_settings.tscn")

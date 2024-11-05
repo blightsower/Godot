@@ -10,4 +10,4 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1
 	GameManager.change_life(-1)
-	SceneTransition.change_scene("res://scenes/transition_screen.tscn", "")
+	GameManager.load_scene()

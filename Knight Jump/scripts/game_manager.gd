@@ -72,3 +72,11 @@ func pause():
 
 func get_pause_status():
 	return _is_paused
+	
+func load_scene():
+	match GameManager.get_current_stage():
+		1: SceneTransition.change_scene("res://scenes/stages/game.tscn", "Level 1")
+		2: SceneTransition.change_scene("res://scenes/stages/game_2.tscn", "Level 2")
+		3: SceneTransition.change_scene("res://scenes/stages/game_3.tscn", "Level 3")
+		4: SceneTransition.change_scene("res://scenes/stages/game_4.tscn", "Level 4")
+		5: SceneTransition.change_scene("res://scenes/stages/game_5.tscn", "Level 5")
