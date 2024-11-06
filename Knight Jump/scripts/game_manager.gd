@@ -1,6 +1,5 @@
 extends Node
 
-enum CAMPAIGN { VICTORY, DEFEAT, PLAYING }
 var INITIAL_SPAWNS = [ Vector2i(-39, 207) ]
 
 const MAX_SCORE = 99
@@ -29,13 +28,14 @@ func change_life(val):
 	_life += val
 	on_life_changed.emit(_life)
 	if _life <= 0:
-		_campaign = CAMPAIGN.DEFEAT
+		SceneTransition.change_scene("res://scenes/menu.tscn", "Game Over!")
+	else:
+		load_scene()
 
 func reset():
 	_life = INITIAL_LIFE
 	_score = INITIAL_SCORE
 	_current_stage = INITIAL_STAGE
-	_campaign = CAMPAIGN.PLAYING
 	_spawn = INITIAL_SPAWNS[0]
 	_is_paused = false
 	SceneTransition.visible = true
@@ -46,7 +46,7 @@ func _on_ready() -> void:
 func next_stage():
 	_current_stage += 1
 	if _current_stage > MAX_STAGE:
-		_campaign = CAMPAIGN.VICTORY
+		SceneTransition.change_scene("res://scenes/menu.tscn", "Congratulations!!!")
 
 func get_life():
 	return _life
