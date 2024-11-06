@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://ovl2i12e3j0p"]
+[gd_scene load_steps=33 format=3 uid="uid://ovl2i12e3j0p"]
 
 [ext_resource type="PackedScene" uid="uid://61nh8ioptxgk" path="res://scenes/parallax_background.tscn" id="1_nxrxb"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_ut8ct"]
 [ext_resource type="PackedScene" uid="uid://bsylnctcdnxxg" path="res://scenes/hud.tscn" id="2_j4ale"]
 [ext_resource type="Texture2D" uid="uid://yjwuyggrn7od" path="res://assets/sprites/world_tileset.png" id="3_opnyo"]
 [ext_resource type="PackedScene" uid="uid://dh5pmkg4eaicn" path="res://scenes/goal.tscn" id="4_ywxyr"]
@@ -401,6 +402,7 @@ _data = {
 
 [node name="Game" type="Node2D"]
 position = Vector2(121, 80)
+script = ExtResource("1_ut8ct")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_nxrxb")]
 

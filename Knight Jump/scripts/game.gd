@@ -6,7 +6,6 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = GameManager.get_pause_status()
 
 func on_pause():
-	
 	if GameManager.get_pause_status():
 		PauseMenu.show()
 	else:
