@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhri0t6rj7t3v"]
+[gd_scene load_steps=5 format=3 uid="uid://bhri0t6rj7t3v"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_iq0qa"]
+[ext_resource type="FontFile" uid="uid://nkfl4wl2efec" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_qt1ku"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_pumej"]
 action = &"escape"
@@ -31,12 +32,22 @@ layout_mode = 2
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
+theme_override_fonts/font = ExtResource("2_qt1ku")
+theme_override_font_sizes/font_size = 32
 shortcut = SubResource("Shortcut_e7a0w")
 text = "Resume"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qt1ku")
+theme_override_font_sizes/font_size = 32
+text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Resume")
+theme_override_fonts/font = ExtResource("2_qt1ku")
+theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [node name="ResumeTimer" type="Timer" parent="MarginContainer"]
