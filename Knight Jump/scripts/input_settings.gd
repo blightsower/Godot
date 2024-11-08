@@ -3,6 +3,7 @@ extends Control
 @onready var input_button_scene = preload("res://scenes/input_button.tscn")
 @onready var action_list: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList
 
+var config_file_path = "user://control_mappings.cfg"
 var is_remapping = false
 var action_to_remap = null
 var remapping_button = null
@@ -54,7 +55,9 @@ func _input(event: InputEvent):
 			
 			InputMap.action_erase_events(action_to_remap)
 			InputMap.action_add_event(action_to_remap, event)
+			_save_control_mapping(action_to_remap, event)
 			_update_action_list(remapping_button, event)
+			
 			
 			is_remapping = null
 			action_to_remap = null
@@ -68,6 +71,10 @@ func _update_action_list(button, event):
 func _on_reset_button_pressed() -> void:
 	create_action_list()
 
-
 func _on_back_button_pressed() -> void:
 	print("check")
+	
+func _save_control_mapping(action, input):
+	var config = ConfigFile.new()
+	config.set_value("input", action, input)
+	config.save(config_file_path)
