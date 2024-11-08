@@ -58,7 +58,6 @@ func _input(event: InputEvent):
 			_save_control_mapping(action_to_remap, event)
 			_update_action_list(remapping_button, event)
 			
-			
 			is_remapping = null
 			action_to_remap = null
 			remapping_button = null
@@ -70,10 +69,10 @@ func _update_action_list(button, event):
 
 func _on_reset_button_pressed() -> void:
 	create_action_list()
-
+	
 func _on_back_button_pressed() -> void:
 	print("check")
-	
+
 func _save_control_mapping(action, input):
 	var config = ConfigFile.new()
 	config.set_value("input", action, input)

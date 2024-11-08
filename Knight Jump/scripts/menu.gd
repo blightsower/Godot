@@ -4,8 +4,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SceneTransition.visible = false
+	# load the input map
 	
+	SceneTransition.visible = false
 	btn_start.grab_focus()
 
 func _on_btn_start_pressed() -> void:
