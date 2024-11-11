@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 PauseMenu="*res://scenes/user interface/pause_menu.tscn"
 SceneTransition="*res://scenes/user interface/scene_transition.tscn"
 Music="*res://scenes/music/music.tscn"
-GameManager="*res://scripts/game_manager.gd"
+GameManager="*res://scripts/singleton/game_manager.gd"
 
 [input]
 
