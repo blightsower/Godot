@@ -14,14 +14,7 @@ func _on_btn_start_pressed() -> void:
 	GameManager.load_scene()
 
 func _on_btn_options_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/input_settings.tscn")
+	get_tree().change_scene_to_file("res://scenes/user interface/input_settings.tscn")
 
 func _on_btn_quit_pressed() -> void:
 	get_tree().quit()
-
-func _load_config():
-	var config = ConfigFile.new()
-	var err = config.load("user://control_mappings.cfg")
-	
-	if err != OK:
-		return

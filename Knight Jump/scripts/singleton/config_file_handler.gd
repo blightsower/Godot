@@ -8,7 +8,7 @@ func _ready() -> void:
 		config.set_value("keybinding", "move_left", "A")
 		config.set_value("keybinding", "move_right", "D")
 		config.set_value("keybinding", "jump","W")
-		config.set_value("keybinding", "escape", "Esc")
+		config.set_value("keybinding", "escape", "Escape")
 
 		config.save(SETTINGS_FILE_PATH)
 		
@@ -39,5 +39,11 @@ func load_keybindings():
 			input_event = InputEventKey.new()
 			input_event.keycode = OS.find_keycode_from_string(event_str)
 		
-		keybindings[keys] = input_event
+		keybindings[key] = input_event
 	return keybindings
+	
+func load_keybindings_from_settings():
+	var keybindings = ConfigFileHandler.load_keybindings()
+	for action in keybindings.keys():
+		InputMap.action_erase_events(action)
+		InputMap.action_add_event(action, keybindings[action])

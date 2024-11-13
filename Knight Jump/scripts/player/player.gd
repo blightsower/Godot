@@ -58,5 +58,6 @@ func _on_coyote_timer_timeout() -> void:
 	coyote = false
 
 func _on_ready() -> void:
+	ConfigFileHandler.load_keybindings_from_settings()
 	coyote_timer.wait_time = coyote_frames / 60
 	position = GameManager.get_spawn()
