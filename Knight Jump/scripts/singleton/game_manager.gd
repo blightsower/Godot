@@ -80,3 +80,6 @@ func load_scene():
 		3: SceneTransition.change_scene("res://scenes/stages/game_3.tscn", "Level 3")
 		4: SceneTransition.change_scene("res://scenes/stages/game_4.tscn", "Level 4")
 		5: SceneTransition.change_scene("res://scenes/stages/game_5.tscn", "Level 5")
+		
+func show_options(visibility:bool):
+	InputSettings.visible = visibility

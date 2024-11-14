@@ -2,10 +2,8 @@ extends Control
 
 @onready var btn_start: Button = $VBoxContainer/btn_start
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# load the input map
-	
+	GameManager.show_options(false)
 	SceneTransition.visible = false
 	btn_start.grab_focus()
 
