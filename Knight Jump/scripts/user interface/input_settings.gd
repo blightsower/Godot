@@ -77,4 +77,4 @@ func _on_reset_button_pressed() -> void:
 	_create_action_list()
 	
 func _on_back_button_pressed() -> void:
-	print("check")
+	get_tree().change_scene_to_file("res://scenes/user interface/menu.tscn")

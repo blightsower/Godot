@@ -20,3 +20,11 @@ func _on_visibility_changed() -> void:
 
 func _on_resume_timer_timeout() -> void:
 	_is_clickable = true
+
+func _on_options_pressed() -> void:
+	pass
+
+func _on_quit_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/user interface/menu.tscn")
+	GameManager.pause()
+	get_tree().paused = GameManager.get_pause_status()
