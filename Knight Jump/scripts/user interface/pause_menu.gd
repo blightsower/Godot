@@ -22,6 +22,7 @@ func _on_resume_timer_timeout() -> void:
 	_is_clickable = true
 
 func _on_options_pressed() -> void:
+	GameManager.show_pause_menu(false)
 	GameManager.show_options(true)
 
 func _on_quit_pressed() -> void:
