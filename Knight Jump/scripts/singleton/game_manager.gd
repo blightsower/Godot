@@ -9,8 +9,19 @@ const INITIAL_LIFE = 3
 const INITIAL_SCORE = 0
 const INITIAL_STAGE = 1
 
-var _score
-var _life
+var score: int:
+	set(value):
+		score = value
+	get:
+		return score
+	
+var life : int :
+	set(value):
+		life = value
+	get:
+		return life
+
+
 var _current_stage
 var _campaign
 var _spawn
@@ -20,39 +31,42 @@ signal on_score_increased(score)
 signal on_life_changed(life)
 signal on_pause()
 
-func increase_score(val):
-	_score += val
-	on_score_increased.emit(_score)
 
-func change_life(val):
-	_life += val
-	on_life_changed.emit(_life)
-	if _life <= 0:
-		SceneTransition.change_scene("res://scenes/user interface/menu.tscn", "Game Over!")
-	else:
-		load_scene()
+#func increase_score(val):
+	#_score += val
+	#on_score_increased.emit(_score)
+
+#func change_life(val):
+	#_life += val
+	#on_life_changed.emit(_life)
+	#if _life <= 0:
+		#SceneTransition.change_scene("res://scenes/user interface/menu.tscn", "Game Over!")
+	#else:
+		#load_scene()
 
 func reset():
-	_life = INITIAL_LIFE
-	_score = INITIAL_SCORE
+	life = INITIAL_LIFE
+	score = INITIAL_SCORE
 	_current_stage = INITIAL_STAGE
 	_spawn = INITIAL_SPAWNS[0]
 	_is_paused = false
 	SceneTransition.visible = true
 
-func _on_ready() -> void:
-	on_life_changed.emit(_life)
+#func _on_ready() -> void:
+	#on_life_changed.emit(_life)
+
+func update_score(additional_score:int):
+	score += additional_score
+	return score
+
+func update_life(additional_life:int):
+	life += additional_life
+	return life
 
 func next_stage():
 	_current_stage += 1
 	if _current_stage > MAX_STAGE:
 		SceneTransition.change_scene("res://scenes/user interface/menu.tscn", "Congratulations!!!")
-
-func get_life():
-	return _life
-
-func get_score():
-	return _score
 
 func get_campaign_state():
 	return _campaign
@@ -83,3 +97,6 @@ func load_scene():
 		
 func show_options(visibility:bool):
 	InputSettings.visible = visibility
+	
+func show_pause_menu(visibility:bool):
+	PauseMenu.visible = visibility
