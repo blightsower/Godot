@@ -22,6 +22,7 @@ PauseMenu="*res://scenes/user interface/pause_menu.tscn"
 SceneTransition="*res://scenes/user interface/scene_transition.tscn"
 GameManager="*res://scripts/singleton/game_manager.gd"
 ConfigFileHandler="*res://scripts/singleton/config_file_handler.gd"
+Events="*res://scripts/singleton/events.gd"
 
 [input]
 
