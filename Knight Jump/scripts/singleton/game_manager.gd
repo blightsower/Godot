@@ -4,7 +4,6 @@ var INITIAL_SPAWNS = [ Vector2i(-39, 207) ]
 
 const MAX_SCORE = 99
 const MAX_STAGE = 5
-
 const INITIAL_LIFE = 3
 const INITIAL_SCORE = 0
 const INITIAL_STAGE = 1
@@ -27,9 +26,9 @@ var _campaign
 var _spawn
 var _is_paused
 
-signal on_score_increased(score)
-signal on_life_changed(life)
-signal on_pause()
+#signal on_score_increased(score)
+#signal on_life_changed(life)
+#signal on_pause()
 
 
 #func increase_score(val):
@@ -55,13 +54,13 @@ func reset():
 #func _on_ready() -> void:
 	#on_life_changed.emit(_life)
 
-func update_score(additional_score:int):
-	score += additional_score
-	return score
-
-func update_life(additional_life:int):
-	life += additional_life
-	return life
+#func update_score(additional_score:int):
+	#score += additional_score
+	#return score
+#
+#func update_life(additional_life:int):
+	#life += additional_life
+	#return life
 
 func next_stage():
 	_current_stage += 1
@@ -82,7 +81,7 @@ func set_spawn(v:Vector2i):
 
 func pause():
 	_is_paused = !_is_paused
-	on_pause.emit()
+	Events.on_pause_game.emit()
 
 func get_pause_status():
 	return _is_paused
