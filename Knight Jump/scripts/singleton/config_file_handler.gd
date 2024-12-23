@@ -9,9 +9,7 @@ func _ready() -> void:
 		config.set_value("keybinding", "move_right", "D")
 		config.set_value("keybinding", "jump","Space")
 		config.set_value("keybinding", "escape", "Escape")
-
 		config.save(SETTINGS_FILE_PATH)
-		
 	else:
 		config.load(SETTINGS_FILE_PATH)
 		
