@@ -15,3 +15,15 @@ func on_life_changed(val:int):
 
 func on_score_changed(val:int):
 	score_label.text = "x" + str(val)
+
+func on_pause_game():
+	pass
+	
+func on_show_pause_menu():
+	pass
+	
+func on_show_option_menu():
+	pass
+	
+func on_show_input_menu():
+	pass
