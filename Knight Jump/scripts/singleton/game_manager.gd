@@ -20,47 +20,32 @@ var life : int :
 	get:
 		return life
 
+var is_paused :bool :
+	set(value):
+		is_paused = value
+	get:
+		return is_paused
+
+
+func pause():
+	is_paused = !is_paused
+	#Events.on_pause_game.emit()
+
 
 var _current_stage
 var _campaign
 var _spawn
-var _is_paused
 
-#signal on_score_increased(score)
-#signal on_life_changed(life)
-#signal on_pause()
-
-
-#func increase_score(val):
-	#_score += val
-	#on_score_increased.emit(_score)
-
-#func change_life(val):
-	#_life += val
-	#on_life_changed.emit(_life)
-	#if _life <= 0:
-		#SceneTransition.change_scene("res://scenes/user interface/menu.tscn", "Game Over!")
-	#else:
-		#load_scene()
+#func get_pause_status():
+	#return is_paused
 
 func reset():
 	life = INITIAL_LIFE
 	score = INITIAL_SCORE
 	_current_stage = INITIAL_STAGE
 	_spawn = INITIAL_SPAWNS[0]
-	_is_paused = false
+	is_paused = false
 	SceneTransition.visible = true
-
-#func _on_ready() -> void:
-	#on_life_changed.emit(_life)
-
-#func update_score(additional_score:int):
-	#score += additional_score
-	#return score
-#
-#func update_life(additional_life:int):
-	#life += additional_life
-	#return life
 
 func next_stage():
 	_current_stage += 1
@@ -78,13 +63,6 @@ func get_spawn():
 	
 func set_spawn(v:Vector2i):
 	_spawn = v
-
-func pause():
-	_is_paused = !_is_paused
-	Events.on_pause_game.emit()
-
-func get_pause_status():
-	return _is_paused
 	
 func load_scene():
 	match GameManager.get_current_stage():
