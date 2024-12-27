@@ -9,9 +9,10 @@ func _ready() -> void:
 	resume.grab_focus()
 
 func _on_resume_pressed() -> void:
-	if GameManager.get_pause_status() and _is_clickable:
+	if GameManager.is_paused and _is_clickable:
 		GameManager.pause()
-		get_tree().paused = GameManager.get_pause_status()
+		Events.on_pause_game.emit()
+		get_tree().paused = GameManager.is_paused
 
 func _on_visibility_changed() -> void:
 	resume.grab_focus()
@@ -28,4 +29,5 @@ func _on_options_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/user interface/menu.tscn")
 	GameManager.pause()
-	get_tree().paused = GameManager.get_pause_status()
+	Events.on_pause_game.emit()
+	get_tree().paused = GameManager.is_paused
