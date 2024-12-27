@@ -11,10 +11,12 @@ func _on_ready() -> void:
 	score_label.text = "x" + str(GameManager.score)
 	
 func on_life_changed(val:int):
-	life_label.text = "x" + str(val)
+	GameManager.life = GameManager.life + val
+	life_label.text = "x" + str(GameManager.life)
 
 func on_score_changed(val:int):
-	score_label.text = "x" + str(val)
+	GameManager.score = GameManager.score + val
+	score_label.text = "x" + str(GameManager.score)
 
 func on_pause_game():
 	pass
