@@ -1,16 +1,17 @@
 extends Node2D
 
 func _on_ready() -> void:
-	#GameManager.on_pause.connect(on_pause)
 	Events.on_pause_game.connect(on_pause)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
+		print("check")
 		GameManager.pause()
-		get_tree().paused = GameManager.get_pause_status()
+		Events.on_pause_game.emit()
+		get_tree().paused = GameManager.is_paused
 
 func on_pause():
-	if GameManager.get_pause_status():
+	if GameManager.is_paused:
 		PauseMenu.show()
 	else:
 		PauseMenu.hide()
